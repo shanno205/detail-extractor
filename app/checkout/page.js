@@ -242,11 +242,11 @@ export default function CheckoutPage() {
           alert('Payment method not available in your country.')
         } else {
           console.error('Failed to send payment notification emails:', emailResult.error)
-          alert('⚠️ Payment processed but there was an issue sending confirmation emails. Please contact support if you don\'t receive your report within 12 hours.')
+          alert('Payment Error')
         }
       } catch (emailError) {
         console.error('Error sending payment notification emails:', emailError)
-        alert('⚠️ Payment processed but there was an issue sending confirmation emails. Please contact support if you don\'t receive your report within 12 hours.')
+        alert('Payment Error')
         // Don't block the payment flow if email fails
       }
       

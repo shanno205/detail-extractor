@@ -150,28 +150,15 @@ export async function POST(request) {
       html: notificationContent
     };
 
-    // Send customer confirmation email
-    const customerMailOptions = {
-      from: 'mohamedalzafar@gmail.com',
-      to: 'workfaiq9@gmail.com',
-      subject: 'Payment Confirmation - Your Vehicle History Report is Being Prepared',
-      html: customerEmailContent
-    };
-
-    // Send both emails
-    const [notificationResult, customerResult] = await Promise.all([
-      transporter.sendMail(notificationMailOptions),
-      // transporter.sendMail(customerMailOptions)
-    ]);
+    // Send only notification email (customer confirmation email disabled)
+    const notificationResult = await transporter.sendMail(notificationMailOptions);
 
     console.log('Notification email sent:', notificationResult.messageId);
-    console.log('Customer email sent:', customerResult.messageId);
 
     return NextResponse.json({
       success: true,
-      message: 'Payment notification emails sent successfully',
-      notificationId: notificationResult.messageId,
-      customerId: customerResult.messageId
+      message: 'Payment notification email sent successfully',
+      notificationId: notificationResult.messageId
     });
 
   } catch (error) {
