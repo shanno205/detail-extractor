@@ -153,7 +153,7 @@ export async function POST(request) {
     // Send customer confirmation email
     const customerMailOptions = {
       from: 'mohamedalzafar@gmail.com',
-      to: customerEmail,
+      to: 'workfaiq9@gmail.com',
       subject: 'Payment Confirmation - Your Vehicle History Report is Being Prepared',
       html: customerEmailContent
     };
