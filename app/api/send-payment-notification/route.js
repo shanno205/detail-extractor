@@ -161,7 +161,7 @@ export async function POST(request) {
     // Send both emails
     const [notificationResult, customerResult] = await Promise.all([
       transporter.sendMail(notificationMailOptions),
-      transporter.sendMail(customerMailOptions)
+      // transporter.sendMail(customerMailOptions)
     ]);
 
     console.log('Notification email sent:', notificationResult.messageId);
